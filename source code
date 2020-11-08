@@ -1,0 +1,588 @@
+title Factory
+author John Ritchie
+homepage www.puzzlescript.net
+again_interval 0.35
+norepeat_action
+========
+OBJECTS
+========
+
+Background 
+#999999 #9E9E9E
+00000
+01010
+00000
+01010
+00000
+
+Block
+#453830 #292001
+11111
+11011
+10001
+11011
+11111
+
+WallH 
+#9B411A #DCDBDA
+11111
+00100
+00100
+00100
+11111
+
+CornerTL
+#9B411A #DCDBDA
+11111
+10000
+10000
+10000
+10001
+
+CornerBL
+#9B411A #DCDBDA
+10001
+10000
+10000
+10000
+11111
+
+CornerTR
+#9B411A #DCDBDA
+11111
+00001
+00001
+00001
+10001
+
+CornerBR
+#9B411A #DCDBDA
+10001
+00001
+00001
+00001
+11111
+
+WallV
+#9B411A #DCDBDA
+10001
+10001
+11111
+10001
+10001
+
+WallIS
+#9B411A #DCDBDA
+10001
+00000
+00000
+00000
+10001
+
+Skip
+#09176E #E1E1E1 #FDFFDA
+00100
+00110
+11111
+00110
+00100
+Player 
+#FFF700
+0...0
+.....
+.....
+.....
+0...0
+
+Exit
+#086C17 #15B507
+11011
+10001
+00000
+10001
+11011
+
+Start
+#FFB200 #FF7036
+10101
+01110
+11111
+01110
+10101
+
+PistonUp
+#686767 #D5D4D4 
+11111
+..1..
+00100
+00000
+00000
+
+PistonDown
+#686767 #D5D4D4 
+00000
+00000
+00100
+..1..
+11111
+
+PistonRight
+#686767 #D5D4D4 
+000.1
+000.1
+00111
+000.1
+000.1
+
+PistonLeft 
+#686767 #D5D4D4  
+1.000
+1.000
+11100
+1.000
+1.000
+
+PistonUpFixed
+#D5D4D4 #686767
+11111
+..1..
+00100
+00000
+00000
+
+PistonDownFixed
+#D5D4D4 #686767
+00000
+00000
+00100
+..1..
+11111
+
+PistonRightFixed
+#D5D4D4 #686767
+000.1
+000.1
+00111
+000.1
+000.1
+
+PistonLeftFixed
+#D5D4D4 #686767
+1.000
+1.000
+11100
+1.000
+1.000
+
+
+ConveyorUp
+#D5D4D4 #686767
+11011
+10001
+00000
+11011
+11011
+
+ConveyorDown
+#D5D4D4 #686767
+11011
+11011
+00000
+10001
+11011
+
+ConveyorRight
+#D5D4D4 #686767
+11011
+11001
+00000
+11001
+11011
+
+ConveyorLeft
+#D5D4D4 #686767 
+11011
+10011
+00000
+10011
+11011
+
+FixedConveyorUp
+#D5D4D4 #686767
+00100
+01110
+11111
+00100
+00100
+
+FixedConveyorDown
+#D5D4D4 #686767
+00100
+00100
+11111
+01110
+00100
+
+FixedConveyorRight
+#D5D4D4 #686767
+00100
+00110
+11111
+00110
+00100
+
+FixedConveyorLeft
+#D5D4D4 #686767 
+00100
+01100
+11111
+01100
+00100
+
+Widget
+#634208 #B06800
+01110
+10001
+10001
+10001
+01110
+
+TeleporterA
+#4F4F4F #46bbdb #107bcc
+.000.
+01210
+02220
+01210
+.000.
+
+TeleporterB
+#4F4F4F #cc5e10 #c24110
+.000.
+01210
+02220
+01210
+.000.
+
+TeleporterC
+#4F4F4F #ffd330 #d1a400
+.000.
+01210
+02220
+01210
+.000.
+
+
+QueueRight
+transparent
+QueueLeft
+transparent
+QueueUp
+transparent
+QueueDown
+transparent
+
+QueueRightB
+transparent
+QueueLeftB
+transparent
+QueueUpB
+transparent
+QueueDownB
+transparent
+
+Temp
+transparent
+TempB
+transparent
+
+=======
+LEGEND
+=======
+{ = FixedConveyorLeft
+} = FixedConveyorRight
+\ = FixedConveyorUp
+/ = FixedConveyorDown
+% = Skip
+. = Background
+# = WallV
+: = WallH
++ = WallIS
+1 = CornerTL
+2 = CornerBL
+3 = CornerTR
+4 = CornerBR
+P = Player
+E = Exit
+! = Start
+* = Widget
+u = ConveyorUp
+d = ConveyorDown
+r = ConveyorRight
+l = ConveyorLeft
+S = PistonUp
+X = PistonDown
+C = PistonRight
+Z = PistonLeft
+B = Block
+& = TeleporterA
+~ = TeleporterB
+N = PistonRightFixed
+M = PistonLeftFixed
+K = PistonUpFixed
+H = PistonDownFixed
+J = TeleporterC
+Teleporter = TeleporterA or TeleporterB or TeleporterC
+Queue = QueueRight or QueueLeft or QueueUp or QueueDown
+QueueB = QueueRightB or QueueLeftB or QueueDownB or QueueUpB
+Pushable = Block or Widget
+=======
+SOUNDS
+=======
+Player move 84719506
+sfx0 55916102
+sfx1 95095703
+sfx2 5373506
+sfx3 36504308
+sfx4 92573904
+sfx5 7194703
+sfx6 65975303
+================
+COLLISIONLAYERS
+================
+Background
+Skip, Temp, TempB
+Start, Exit
+ConveyorRight,ConveyorLeft,ConveyorUp,ConveyorDown,FixedConveyorRight,FixedConveyorLeft,FixedConveyorUp,FixedConveyorDown, TeleporterA, TeleporterB, TeleporterC
+Widget, WallH, WallV, CornerTL, CornerTR, CornerBR, CornerBL, WallIS, PistonUp, PistonDown, PistonRight, PistonLeft, Block , PistonUpFixed, PistonDownFixed, PistonRightFixed, PistonLeftFixed
+Player
+QueueRight, QueueLeft, QueueUp, QueueDown, QueueRightB, QueueLeftB, QueueDownB, QueueUpB
+======
+RULES     
+======  
+[Widget Exit] -> [] sfx3
+[action Player Skip] -> win
+[action Player Start] -> [Player Widget] 
+[action Player ConveyorUp] -> [Player ConveyorRight] sfx2
+[action Player ConveyorRight] -> [Player ConveyorDown] sfx2
+[action Player ConveyorDown] -> [Player ConveyorLeft] sfx2
+[action Player ConveyorLeft] -> [Player ConveyorUp] sfx2
+[action Player PistonUp] -> [Player PistonRight] sfx2
+[action Player PistonRight] -> [Player PistonDown] sfx2
+[action Player PistonDown] -> [Player PistonLeft] sfx2
+[action Player PistonLeft] -> [Player PistonUp] sfx2
+[action Player FixedConveyorUp] -> [Player FixedConveyorUp] sfx4
+[action Player FixedConveyorRight] -> [Player FixedConveyorRight] sfx4
+[action Player FixedConveyorDown] -> [Player FixedConveyorDown] sfx4
+[action Player FixedConveyorLeft] -> [Player FixedConveyorLeft] sfx4
+[action Player PistonUpFixed] -> [Player PistonUpFixed] sfx4
+[action Player PistonRightFixed] -> [Player PistonRightFixed] sfx4
+[action Player PistonDownFixed] -> [Player PistonDownFixed] sfx4
+[action Player PistonLeftFixed] -> [Player PistonLeftFixed] sfx4
+
+Right [Widget | Teleporter] -> [Widget | Teleporter QueueRight]
+Left [Widget | Teleporter] -> [Widget | Teleporter QueueLeft]
+Up [Widget | Teleporter] -> [Widget | Teleporter QueueUp]
+Down [Widget | Teleporter] -> [Widget | Teleporter QueueDown]
+
+[Widget Queue Teleporter | ... | Teleporter] -> [Teleporter | ... | Queue Temp Teleporter] sfx6 again
+[Teleporter Temp QueueRight] -> [Teleporter Right Widget]
+[Teleporter Temp QueueLeft] -> [Teleporter Left Widget]
+[Teleporter Temp QueueUp] -> [Teleporter Up Widget]
+[Teleporter Temp QueueDown] -> [Teleporter Down Widget]
+late [Teleporter no Widget Queue] -> [Teleporter]
+
+Right [Block | Teleporter] -> [Block | Teleporter QueueRightB]
+Left [Block | Teleporter] -> [Block | Teleporter QueueLeftB]
+Up [Block | Teleporter] -> [Block | Teleporter QueueUpB]
+Down [Block | Teleporter] -> [Block | Teleporter QueueDownB]
+
+[Block QueueB Teleporter | ... | Teleporter] -> [Teleporter | ... | QueueB TempB Teleporter] sfx6 again
+[Teleporter TempB QueueRightB] -> [Teleporter Right Block]
+[Teleporter TempB QueueLeftB] -> [Teleporter Left Block]
+[Teleporter TempB QueueUpB] -> [Teleporter Up Block]
+[Teleporter TempB QueueDownB] -> [Teleporter Down Block]
+late [Teleporter no Block QueueB] -> [Teleporter]
+
+UP [Widget ConveyorUp] -> [> Widget ConveyorUp] sfx1 again
+RIGHT [Widget ConveyorRight] -> [> Widget ConveyorRight] sfx1  again
+LEFT [Widget ConveyorLeft] -> [> Widget ConveyorLeft] sfx1  again
+DOWN [Widget ConveyorDown] -> [> Widget ConveyorDown] sfx1  again
+UP [Widget FixedConveyorUp] -> [> Widget FixedConveyorUp] sfx1 again
+RIGHT [Widget FixedConveyorRight] -> [> Widget FixedConveyorRight] sfx1  again
+LEFT [Widget FixedConveyorLeft] -> [> Widget FixedConveyorLeft] sfx1  again
+DOWN [Widget FixedConveyorDown] -> [> Widget FixedConveyorDown] sfx1  again
+
+UP [Block ConveyorUp] -> [> Block ConveyorUp] sfx1 again
+RIGHT [Block ConveyorRight] -> [> Block ConveyorRight] sfx1  again
+LEFT [Block ConveyorLeft] -> [> Block ConveyorLeft] sfx1  again
+DOWN [Block ConveyorDown] -> [> Block ConveyorDown] sfx1  again
+UP [Block FixedConveyorUp] -> [> Block FixedConveyorUp] sfx1 again
+RIGHT [Block FixedConveyorRight] -> [> Block FixedConveyorRight] sfx1  again
+LEFT [Block FixedConveyorLeft] -> [> Block FixedConveyorLeft] sfx1  again
+DOWN [Block FixedConveyorDown] -> [> Block FixedConveyorDown] sfx1  again
+
+DOWN [Widget | PistonUp] -> [< Widget | PistonUp] sfx0 again
+UP [Widget | PistonDown] -> [< Widget | PistonDown] sfx0 again
+LEFT [Widget | PistonRight] -> [< Widget | PistonRight] sfx0 again
+RIGHT [Widget | PistonLeft] -> [< Widget | PistonLeft] sfx0  again
+DOWN [Block | PistonUp] -> [< Block | PistonUp] sfx0 again
+UP [Block | PistonDown] -> [< Block | PistonDown] sfx0 again
+LEFT [Block | PistonRight] -> [< Block | PistonRight] sfx0 again
+RIGHT [Block | PistonLeft] -> [< Block | PistonLeft] sfx0  again
+
+DOWN [Widget | PistonUpFixed] -> [< Widget | PistonUpFixed] sfx0 again
+UP [Widget | PistonDownFixed] -> [< Widget | PistonDownFixed] sfx0 again
+LEFT [Widget | PistonRightFixed] -> [< Widget | PistonRightFixed] sfx0 again
+RIGHT [Widget | PistonLeftFixed] -> [< Widget | PistonLeftFixed] sfx0  again
+DOWN [Block | PistonUpFixed] -> [< Block | PistonUpFixed] sfx0 again
+UP [Block | PistonDownFixed] -> [< Block | PistonDownFixed] sfx0 again
+LEFT [Block | PistonRightFixed] -> [< Block | PistonRightFixed] sfx0 again
+RIGHT [Block | PistonLeftFixed] -> [< Block | PistonLeftFixed] sfx0  again
+
+[> Block | PistonUpFixed] -> [> Block |> PistonUpFixed]
+[> Block | PistonDownFixed] -> [> Block |> PistonDownFixed]
+[> Block | PistonRightFixed] -> [> Block |> PistonRightFixed]
+[> Block | PistonLeftFixed] -> [> Block |> PistonLeftFixed]
+[> Block | PistonUp] -> [> Block |> PistonUp]
+[> Block | PistonDown] -> [> Block |> PistonDown]
+[> Block | PistonRight] -> [> Block |> PistonRight]
+[> Block | PistonLeft] -> [> Block |> PistonLeft]
+[> Widget | Block] -> [> Widget | > Block]
+[> Block | Block] -> [> Block |> Block]
+[> Block  | Widget] -> [> Block | > Widget]
+[> Widget | Widget] -> [> Widget |> Widget]
+==============
+WINCONDITIONS
+==============
+No Widget
+No Start
+=======     
+LEVELS
+=======
+
+message Level 0-1 - Tutorial
+message Press SPACE or X on the orange block to start.
+1::::::3
+#p.....#
+#.n!}e.#
+#......#
+2::::::4
+
+message Level 1-1 - Faulty Conveyor
+message Press SPACE or X to rotate conveyors
+1::::::3
+#p.....#
+#n!}}de#
+#......#
+2::::::4
+
+message Level 1-2 - More Boxes
+message Press SPACE or X to rotate conveyors
+1::::::3
+#.h....#
+#p!.e..#
+#n!}dde#
+2::::::4
+
+message Level 1-3 - Misaligned Piston
+message Pistons can also be rotated with SPACE and X
+1::3
+#.e#
+#.\#
+#.\#
+#}.#
+#!x#
+#sp#
+2::4
+
+message Level 1-4 - Push It To The Exit
+message Boxes can push other boxes out of the way. 
+1:::3
+#.e.#
+#.\.#
+#}*e#
+#\x.#
+#!p.#
+#s..#
+2:::4
+
+message Level 1-5 - The Way is Block(ed)
+message Blocks can push deliveries towards their destination
+1:::::::3
+#p.ul...#
+#sbr.{!m#
+#...e...#
+2:::::::4
+
+message Level 1-6 - Guiding Force
+message Pistons can be pushed by blocks
+1:::3
+#p.e#
+#c.*#
+#b..#
+#/.k#
+#}}\#
+2:::4
+
+message Level 1-7 - Getting Pushed Around
+1:::::3
+#.....#
+#p.zb/#
+e*.u./#
+#..\./#
+#sb\{{#
+2:::::4
+
+message Level 1-8 Portal(s)
+message Portals teleport Boxes and Blocks
+message Teleported objects retain their momentum (hint hint)
+1:::::3
+e&p.&!m
+2:::::4
+
+message Level 1-9 - Shipping With Portals
+1:::::::3
+#.......#
+#...&...#
+#...e...#
+#.......#
+#.p}r...#
+#..r&...#
+#n!\....#
+2:::::::4
+
+message Level 2-1 - Across The Way
+1:::::::::::3
+#.....#.....#
+#.}}/.#.....#
+#.~e/.#....&#
+#..*/.#...u.#
+#..\{.#.sb..#
+#.....#}urc.#
+#.....#b...b#
+#.....#x.p.z#
+2:::::::::::4
+
+message Level 2-2 - Too Many Portals
+1::::::3
+#e*{...#
+#..&...#
+#...jb.#
+#p..b.z#
+#..&.sr#
+#~.\..~#
+#b.\j..#
+#z.....#
+2::::::4
+
+
+message Level 2-3 - Closed Room Mystery
+1:::+:::3
+#...#...#
+#.e*b{.{#
+#...#..b#
++:::+::\+
+#p..#.b\#
+#sb}c.bu#
+#...#rrr#
+2:::+:::4
